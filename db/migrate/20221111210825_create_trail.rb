@@ -4,7 +4,6 @@ class CreateTrail < ActiveRecord::Migration[7.0]
       t.string :trail_name
       t.string :location
       t.boolean :completed
-      t.timestamps
     end
   end
 end
