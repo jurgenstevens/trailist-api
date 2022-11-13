@@ -20,11 +20,19 @@ class TrailsController < ApplicationController
     end
 
     def create
+        @trail = Trail.new(trail_params)
+
+        if @trail.save
+            render(json: { trail: @trail }, status: 201)
+        else
+            # Unprocessable Entity
+            render(json: { trail: @trail }, status: 422)
+        end
     end
 
     private # Any methods below here
     def trail_params
         # Returns a sanitized hash of the params with nothing extra
-        params.required(:trail).permit(:trail_name, :location, :completed)
+        params.required(:trail).permit(:trail_name, :location, :completed, :user_id)
     end
 end
