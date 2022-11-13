@@ -14,7 +14,17 @@ class TrailsController < ApplicationController
 
     # SHOW route to get trails by id
     def show
+        # Input comes in from the `params` hash
         trail = Trail.find(params[:id])
         render json: {status: 200, trail: trail}
+    end
+
+    def create
+    end
+
+    private # Any methods below here
+    def trail_params
+        # Returns a sanitized hash of the params with nothing extra
+        params.required(:song).permit(trail_name, location, completed)
     end
 end
