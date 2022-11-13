@@ -25,6 +25,6 @@ class TrailsController < ApplicationController
     private # Any methods below here
     def trail_params
         # Returns a sanitized hash of the params with nothing extra
-        params.required(:song).permit(trail_name, location, completed)
+        params.required(:trail).permit(:trail_name, :location, :completed)
     end
 end
