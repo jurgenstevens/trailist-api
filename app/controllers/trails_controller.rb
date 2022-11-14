@@ -30,6 +30,17 @@ class TrailsController < ApplicationController
         end
     end
 
+    def update
+        trail = Trail.find(params[:id])
+        trail.update(trail_params)
+        render(json: {trail: trail})
+    end
+
+    def destroy
+        trail = Trail.destroy(params[:id])
+        render(status: 204)
+    end
+
     private # Any methods below here
     def trail_params
         # Returns a sanitized hash of the params with nothing extra
