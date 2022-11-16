@@ -1,2 +1,5 @@
-./config/master.key
-.env
+# Ignore master.key file
+master.key
+
+# Ignore secrets.yml file
+secrets.yml

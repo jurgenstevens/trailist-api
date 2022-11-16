@@ -35,7 +35,7 @@ class TrailsController < ApplicationController
         trail.update(trail_params)
         render(json: {trail: trail})
     end
-
+    
     def destroy
         trail = Trail.destroy(params[:id])
         render(status: 204)
