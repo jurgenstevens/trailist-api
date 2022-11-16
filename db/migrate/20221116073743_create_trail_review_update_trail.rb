@@ -6,7 +6,7 @@ class CreateTrailReviewUpdateTrail < ActiveRecord::Migration[7.0]
       t.string :review
       t.integer :rating
     end
-    add_column trails, :trail_reviews, :integer
+    add_column :trails, :trail_reviews, :integer
     remove_column :trails, :updated_at
   end
 end
