@@ -17,6 +17,15 @@ class TrailReviewsController < ApplicationController
         }
     end
 
+    def create
+        @trail_review = Trail.new(trail_params)
+
+        if @trail_review
+            render(json: { trail_review: @trail_review}, status: 201)
+        else # Unprocessable Entity
+            render(json: {trail_review: @trail_review}, status: 422)
+        end
+    end
 
     private
     def trail_review_params
